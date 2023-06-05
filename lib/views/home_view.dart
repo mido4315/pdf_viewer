@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:pdf_viewer/views/pdf_show_view.dart';
 import 'package:provider/provider.dart';
@@ -20,12 +19,12 @@ class _HomeViewState extends State<HomeView> {
         builder: (context, state, child) {
           return Center(
             child: SizedBox(
-              height: MediaQuery.of(context).size.height*0.1,
-              width: MediaQuery.of(context).size.width *0.15,
+              height: MediaQuery.of(context).size.height * 0.1,
+              width: MediaQuery.of(context).size.width * 0.15,
               child: ElevatedButton(
                 onPressed: () async {
                   bool check = await state.loadFile();
-                  if(check){
+                  if (check) {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -37,7 +36,7 @@ class _HomeViewState extends State<HomeView> {
                 },
                 child: const Text(
                   "Open",
-                  style: TextStyle(fontSize: 24,fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
               ),
             ),
