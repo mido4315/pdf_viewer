@@ -16,6 +16,4 @@ class PdfProvider extends ChangeNotifier {
       return false;
     }
   }
-
-
 }
