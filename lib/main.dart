@@ -10,11 +10,11 @@ import 'views/home_view.dart';
 
 void main(List<String> args) {
 
-  final List<String> myArgs = [
-    'string 01',
-    'string 02',
-    'string 03',
-  ];
+  // final List<String> myArgs = [
+  //   'string 01',
+  //   'string 02',
+  //   'string 03',
+  // ];
   //args = myArgs;
   if (args.isNotEmpty) {
     PdfProvider.globalArgs = args;
@@ -35,7 +35,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'PDF Viewer',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,

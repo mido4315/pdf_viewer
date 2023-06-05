@@ -1,12 +1,9 @@
-import 'dart:io';
 
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:pdf_viewer/views/pdf_show_view.dart';
 import 'package:provider/provider.dart';
 
 import '../business_logic.dart';
-import '../main.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -22,19 +19,26 @@ class _HomeViewState extends State<HomeView> {
       body: Consumer<PdfProvider>(
         builder: (context, state, child) {
           return Center(
-            child: ElevatedButton(
-              onPressed: () async {
-                await state.loadFile();
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => PdfShowView(
-                        pdfFile: state.file,
-                      ),
-                    ));
-              },
-              child: const Text(
-                "Open",
+            child: SizedBox(
+              height: MediaQuery.of(context).size.height*0.1,
+              width: MediaQuery.of(context).size.width *0.15,
+              child: ElevatedButton(
+                onPressed: () async {
+                  bool check = await state.loadFile();
+                  if(check){
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => PdfShowView(
+                            pdfFile: state.file,
+                          ),
+                        ));
+                  }
+                },
+                child: const Text(
+                  "Open",
+                  style: TextStyle(fontSize: 24,fontWeight: FontWeight.bold),
+                ),
               ),
             ),
           );
