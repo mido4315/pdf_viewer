@@ -15,6 +15,7 @@ class PdfShowView extends StatefulWidget {
 class _PdfShowViewState extends State<PdfShowView> {
   final GlobalKey<SfPdfViewerState> _pdfViewerKey = GlobalKey();
   PdfViewerController pdfViewerController = PdfViewerController();
+
   @override
   Widget build(BuildContext context) {
     String fileName = (widget.pdfFile.path.split('\\').last).split('.').first;
@@ -37,7 +38,6 @@ class _PdfShowViewState extends State<PdfShowView> {
       body: SfPdfViewer.file(
         enableDoubleTapZooming: true,
         canShowHyperlinkDialog: true,
-
         controller: pdfViewerController,
         widget.pdfFile,
         key: _pdfViewerKey,
