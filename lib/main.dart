@@ -7,9 +7,7 @@ import 'package:provider/provider.dart';
 
 import 'views/home_view.dart';
 
-
 void main(List<String> args) {
-
   // final List<String> myArgs = [
   //   'string 01',
   //   'string 02',
