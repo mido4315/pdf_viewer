@@ -14,7 +14,7 @@ class PdfShowView extends StatefulWidget {
 
 class _PdfShowViewState extends State<PdfShowView> {
   final GlobalKey<SfPdfViewerState> _pdfViewerKey = GlobalKey();
-
+  PdfViewerController pdfViewerController = PdfViewerController();
   @override
   Widget build(BuildContext context) {
     String fileName = (widget.pdfFile.path.split('\\').last).split('.').first;
@@ -24,8 +24,8 @@ class _PdfShowViewState extends State<PdfShowView> {
         actions: <Widget>[
           IconButton(
             icon: const Icon(
-              Icons.bookmark,
-              color: Colors.white,
+              Icons.bookmark_border,
+              color: Colors.black,
               semanticLabel: 'Bookmark',
             ),
             onPressed: () {
@@ -35,7 +35,10 @@ class _PdfShowViewState extends State<PdfShowView> {
         ],
       ),
       body: SfPdfViewer.file(
-        enableTextSelection: true,
+        enableDoubleTapZooming: true,
+        canShowHyperlinkDialog: true,
+
+        controller: pdfViewerController,
         widget.pdfFile,
         key: _pdfViewerKey,
       ),
